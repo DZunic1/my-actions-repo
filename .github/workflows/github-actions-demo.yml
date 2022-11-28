@@ -12,7 +12,7 @@ on:
     branches: [ main ] 
   
   schedule:
-    - cron: '15 6 * * 7'
+    - cron: '15 6 * * 0'
     
 jobs:
   build:

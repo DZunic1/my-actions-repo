@@ -21,7 +21,7 @@ jobs:
     steps:
       - run: echo "Hi"
       - run: echo $GITHUB_EVENT_NAME
-      - run: echo ${{ github.event }}
+      - run: echo ${{ github.event_name }}
       - run: echo $GITHUB_REF_NAME
       - run: echo ${{ github.ref }}
       - uses: actions/checkout@v3

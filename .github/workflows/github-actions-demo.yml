@@ -21,10 +21,17 @@ jobs:
     steps:
       - run: echo "Hi"
       - run: echo $GITHUB_EVENT_NAME
+      - run: echo ${{ github.event }}
       - run: echo $GITHUB_REF_NAME
+      - run: echo ${{ github.ref }}
+      - uses: actions/checkout@v3
+          with:
+            ref: ${{ github.ref }}
+      
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}
+          ls ${{ github.workspace }} 
+        
     
 
 

@@ -1,4 +1,4 @@
-# GitHub Actions Fundamentals
+# GitHub Actions Fundamentals - MODIFIED (Test event behaviour)
 
 Repo for the `GitHub Actions Fundamentals` training.
 

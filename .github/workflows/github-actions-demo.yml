@@ -30,7 +30,8 @@ jobs:
       
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }} 
+          echo "The repository ${{ github.repository }} contains the following files:"
+          tree
         
     
 

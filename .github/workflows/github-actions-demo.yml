@@ -21,6 +21,10 @@ jobs:
     steps:
       - run: echo "Hi"
       - run: echo $GITHUB_EVENT_NAME
+      - run: echo $GITHUB_REF_NAME
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
     
 
 

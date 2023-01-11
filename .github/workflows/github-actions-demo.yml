@@ -41,7 +41,16 @@ jobs:
         run: echo '${{ toJSON(runner) }}'
       - name: Dump github context
         run: echo '${{ toJSON(github) }}'
-        
+  
+  test:
+    runs-on: ubuntu-latest
+    environment: test
+    needs: [build]
+    if: ${{ github.event_name}} == workflow_dispatch
+    
+    steps:
+      - name: Print test output
+        run: echo "Testing ..."
     
 
 

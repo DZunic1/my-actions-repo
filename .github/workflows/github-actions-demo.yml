@@ -62,7 +62,15 @@ jobs:
           echo ${{ matrix.step }}
           sleep 5
         
-
+  production2:
+    runs-on: ubuntu-latest
+    environment: 
+      name: production
+      url: https://writeabout.net
+    needs: [production]
+    steps:
+      - name: Print final step
+        run: echo "finished"
         
   build:
     runs-on: ubuntu-latest

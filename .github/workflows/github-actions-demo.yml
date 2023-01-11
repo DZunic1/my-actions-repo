@@ -20,6 +20,16 @@ on:
     - cron: '15 6 * * 0'
     
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment: test
+    needs: [build]
+    if: ${{ github.event_name}} == workflow_dispatch
+    
+    steps:
+      - name: Print test output
+        run: echo "Testing ..."
+        
   build:
     runs-on: ubuntu-latest
     
@@ -42,15 +52,6 @@ jobs:
       - name: Dump github context
         run: echo '${{ toJSON(github) }}'
   
-  test:
-    runs-on: ubuntu-latest
-    environment: test
-    needs: [build]
-    if: ${{ github.event_name}} == workflow_dispatch
-    
-    steps:
-      - name: Print test output
-        run: echo "Testing ..."
     
 
 

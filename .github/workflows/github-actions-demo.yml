@@ -44,10 +44,6 @@ jobs:
         run: echo "Load-Testing ..."
       - name: Sleep 15 sec
         run: sleep 15
-      - name: Echo event name 
-        run: |
-          echo "Event name ${{ github.event_name }}"
-          echo ${{ github.event_name }} == workflow_d
         
   production:
     runs-on: ubuntu-latest
@@ -55,8 +51,9 @@ jobs:
       matrix:
         step: [1, 2, 3, 4, 5]
     environment: production
+    url: 'https://writeabout.net'
     needs: [test, load-test]
-    if: github.event.inputs.environment == 'load-test'
+    if: github.event.inputs.environment == 'production'
     
     steps:
       - name: Print Step

@@ -29,6 +29,8 @@ jobs:
     steps:
       - name: Print test output
         run: echo "Testing ..."
+      - name: Print event name
+        run: echo "Event name ${{ github.event_name }}"
 
   load-test:
     runs-on: ubuntu-latest

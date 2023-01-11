@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: load-test
     needs: [build]
-    if: github.event_name == 'workflow_d'
+    if: github.event_name == 'workflow_dispatch'
     #if: 1 == 2
     
     steps:
@@ -49,6 +49,19 @@ jobs:
           echo "Event name ${{ github.event_name }}"
           echo ${{ github.event_name }} == workflow_d
         
+  production:
+    runs-on: ubuntu-latest
+    strategy: 
+      matrix:
+        step: [1, 2, 3, 4, 5]
+    environment: production
+    needs: [test, load-test]
+    if: github.event.inputs.environment == 'load-test'
+    
+    steps:
+      - name: Print Step
+        run: echo ${{ matrix.step }}
+
         
   build:
     runs-on: ubuntu-latest

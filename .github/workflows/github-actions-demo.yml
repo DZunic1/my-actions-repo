@@ -58,7 +58,10 @@ jobs:
     
     steps:
       - name: Print Step
-        run: echo ${{ matrix.step }}
+        run: | 
+          echo ${{ matrix.step }}
+          sleep 5
+        
 
         
   build:

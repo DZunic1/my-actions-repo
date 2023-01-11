@@ -29,6 +29,18 @@ jobs:
     steps:
       - name: Print test output
         run: echo "Testing ..."
+
+  load-test:
+    runs-on: ubuntu-latest
+    environment: load-test
+    needs: [build]
+    if: ${{ github.event_name}} == workflow_dispatch
+    
+    steps:
+      - name: Print load-test output
+        run: echo "Load-Testing ..."
+      - name: Sleep 15 sec
+        run: sleep 15
         
   build:
     runs-on: ubuntu-latest

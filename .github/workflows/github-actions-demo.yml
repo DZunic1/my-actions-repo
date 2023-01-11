@@ -51,7 +51,7 @@ jobs:
       matrix:
         step: [1, 2, 3, 4, 5]
     environment: 
-      name: xroduction
+      name: production
       url: https://writeabout.net
     needs: [test, load-test]
     if: github.event.inputs.environment == 'production'

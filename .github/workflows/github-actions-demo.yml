@@ -36,8 +36,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: load-test
     needs: [build]
-    #if: ${{ github.event_name}} == workflow_d
-    if: 1 == 2
+    if: ${{ github.event_name}} == workflow_d
+    #if: 1 == 2
     
     steps:
       - name: Print load-test output

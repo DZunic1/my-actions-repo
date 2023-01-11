@@ -36,13 +36,19 @@ jobs:
     runs-on: ubuntu-latest
     environment: load-test
     needs: [build]
-    if: ${{ github.event_name}} == workflow_disatch
+    #if: ${{ github.event_name}} == workflow_d
+    if: 1 == 2
     
     steps:
       - name: Print load-test output
         run: echo "Load-Testing ..."
       - name: Sleep 15 sec
         run: sleep 15
+      - name: Echo event name 
+        run: |
+          echo "Event name ${{ github.event_name }}"
+          echo ${{ github.event_name }} == workflow_d
+        
         
   build:
     runs-on: ubuntu-latest
